@@ -696,17 +696,13 @@ const SLIDES = [
   { id:'s00', section:'Abertura', label:'Capa', type:'capa',
     data: {
       photo: FOTO_FILIPE_CREDENCIAL,
-      eyebrow:'Webinário · Real ECOM',
-      title:'Código do\nProduto\nLucrativo',
-      sub:'Como identificar e escolher o produto certo no Mercado Livre',
-      tag:'Método Exclusivo',
-      name:'Filipe Melchior',
-      role:'Triângulo da Viabilidade',
-      stats:[
-        ['2025','Milhões faturados no Mercado Livre'],
-        ['Jan/2026','R$100k com 1 único produto'],
-        ['15–20h','semanais · operação de casa'],
-      ]
+      eyebrow:'WEBINÁRIO · REAL ECOM',
+      title:'CÓDIGO DO\nPRODUTO\nLUCRATIVO',
+      sub:'Como identificar e escolher o produto certo no Mercado Livre e transformar a demanda que já existe em dinheiro real no seu bolso.',
+      tag:'',
+      name:'FILIPE MELCHIOR',
+      role:'',
+      stats:[]
     }
   },
 
@@ -760,21 +756,23 @@ const SLIDES = [
   { id:'s05', section:'Abertura', label:'Filipe', type:'capa',
     data:{
       photo: FOTO_FILIPE_POINTING,
-      eyebrow:'Sobre mim · 05',
-      title:'Quem é\no Filipe',
+      eyebrow:'SOBRE MIM',
+      title:'QUEM É\nO FILIPE',
       sub:'Vendedor do ML — não guru, não agência, não curso de como ficar rico',
-      tag:'Operador Real',
-      name:'Filipe Melchior',
-      role:'Vendedor · Mentor Real ECOM',
+      tag:'OPERADOR REAL',
+      name:'',
+      role:'',
       stats:[
-        ['2025','Milhões faturados no Mercado Livre'],
-        ['R$100k','Em janeiro/26 com 1 único produto'],
-        ['15–20h','Semanais · filho, escola de samba, jiu-jitsu'],
+        ['33 anos',''],
+        ['Pai',''],
+        ['Marido',''],
+        ['Gestor de Projetos','ESIC Marketing & Business School'],
+        ['Seller do ML','com mais de R$3 milhões faturados em 2025'],
+        ['★','Alcancei a Liberdade Financeira e Qualidade de Vida através do Mercado Livre!'],
       ]
     }
   },
 
-  // 06 — CRENÇA
   { id:'s06', section:'Conteúdo', label:'Vender≠Ganhar', type:'topics', tag:'CONTEÚDO · 06',
     title:'Vender mais ≠ ganhar mais',
     items:[
@@ -783,89 +781,70 @@ const SLIDES = [
       { text:'<em>Todo produto vende. Mas nem todo produto você pode vender.</em>' },
       { text:'Concorrente tem <strong>10x mais poder de compra</strong> — você não acessa as mesmas margens com seu capital hoje' },
     ],
-    note:{ label:'NOVA CRENÇA', text:'No ML não é quem <strong>vende mais</strong> que ganha mais — é quem <strong>escolhe melhor o produto.</strong>' }
+    note:{ label:'NOVA CRENÇA', text:'No ML não é quem <strong>vende mais</strong> que ganha mais — é quem <strong>escolhe melhor o produto.</strong><br><br><span style="font-size:0.7em;color:#888;letter-spacing:2px;text-transform:uppercase">Guarde isso:</span><br><span style="color:var(--am)">FATURAMENTO É VAIDADE.<br>MARGEM É REALIDADE!</span>' }
   },
 
-  // 06B — FRASE
-  { id:'s06b', section:'Conteúdo', label:'Frase', type:'impact',
-    tag:'FRASE-CHAVE',
-    phrase:['Faturamento é ', 'vaidade.', '\nMargem é ', 'realidade.'],
-    sub:'No Mercado Livre, não é quem vende mais que ganha mais.\nÉ quem escolhe melhor o produto.',
-    big:'FM'
-  },
-
-  // 07
-  { id:'s07', section:'Conteúdo', label:'Produto Mágico', type:'topics', tag:'CONTEÚDO · 07',
-    title:'O mito do produto mágico',
-    items:[
-      { text:'Girar capital no <strong>máximo 10x</strong> — Triângulo gera muito melhor que aposta cega' },
-      { text:'Produto vende 5k/mês → você compra 10k → <strong>2 meses pra girar → vai quebrar</strong>' },
-      { text:'<strong>Produto mágico dura 2 meses</strong> — no 3º mês chegam concorrentes e dividem suas vendas' },
-      { text:'O que funciona: <strong>metodologia que filtra oportunidade real de armadilha de margem</strong>' },
-      { text:'Tudo previsível <strong>antes de investir 1 centavo</strong>' },
-    ]
-  },
-
-  // 08 — CLT + CÁLCULO
-  { id:'s08', section:'Conteúdo', label:'Cálculo', type:'data', tag:'DADOS · 08',
-    title:'A armadilha que ninguém precifica',
-    cols:[
-      {
-        label:'CÁLCULO REAL DA MARGEM',
-        accentColor:'var(--am)',
-        rows:[
-          { label:'Margem bruta inicial', val:'20%', color:'var(--am)' },
-          { label:'Imposto Simples Nacional', val:'- 4%', color:'var(--vm)' },
-          { label:'Antecipação de recebíveis', val:'- 4%', color:'var(--vm)' },
-        ],
-        total:{ label:'Margem real', val:'12%', color:'var(--am)' }
-      },
-      {
-        label:'SE VOCÊ GANHA R$5K NA CLT',
-        accentColor:'var(--vd)',
-        rows:[
-          { label:'Precisa sobrar líquido', val:'R$5.000', color:'var(--br)' },
-          { label:'Empresa gera líquido mín.', val:'R$10–12k', color:'var(--am)' },
-          { label:'Metade reinveste', val:'~R$5–6k', color:'var(--vd)' },
-          { label:'Prazo mín. em paralelo', val:'6–12 meses', color:'var(--br)' },
-        ],
-        total:{ label:'Antes de sair da CLT', val:'Estrutura primeiro', color:'var(--vd)', small:true }
-      },
-    ]
-  },
-
-  // 09
-  { id:'s09', section:'Conteúdo', label:'Gargalo 1', type:'topics', tag:'CONTEÚDO · 09',
-    title:'Gargalo 1 — Sem critério de produto',
-    items:[
-      { text:'Vendedor pesquisa tendência → copia concorrente → <strong>entra em produto saturado</strong>' },
-      { text:'Vende com margem mínima → busca próximo produto → <strong>tenta de novo</strong>' },
-      { text:'Preso no <strong>ciclo de entrada e saída</strong> sem nunca ter previsibilidade ou margem consistente' },
-      { text:'Você está <strong>sempre tendo que começar tudo de novo</strong>' },
-    ]
-  },
-
-  // 10
-  { id:'s10', section:'Conteúdo', label:'Gargalo 2', type:'topics', tag:'CONTEÚDO · 10',
-    title:'Gargalo 2 — A armadilha do volume',
-    items:[
-      { text:'<strong>Caixa preso no giro</strong> — vende, reinveste, vende, reinveste. No final sobra muito pouco', color:'orange' },
-      { text:'<strong>Operação refém de volume</strong> — sempre precisa faturar muito alto pra pagar as contas', color:'orange' },
-      { text:'Força margem cada vez menor → <strong>imposto vai lá nas alturas → come tudo que sobrou</strong>', color:'red' },
-      { text:'<strong>Quanto mais você vende, maior sua chance de quebrar</strong>', color:'red' },
+  { id:'s07', section:'Conteúdo', label:'Não sou guru', type:'twocol', tag:'CONTEÚDO · 07',
+    title:'Preciso ser honesto com você: EU NÃO SOU GURU!',
+    leftItems:[
+      { label:'', color:'var(--br)', items:[
+        'Vou te dar um conhecimento real, do que acontece na minha operação para você!',
+      ]},
     ],
-    note:{ label:'EXEMPLO', text:'20% margem → Simples <strong>(-4%)</strong> = 16% → antecipa <strong>(-4%)</strong> = 12%. Você achava que tinha 20%. <strong>Tinha 12%.</strong>' }
+    rightBlocks:[
+      {
+        label:'O QUE EU NÃO VOU TE PROMETER',
+        color:'var(--vm)',
+        items:[
+          'Ficar milionário em 1 ano!',
+          'Faturar R$100k com R$5k de investimento',
+          'Te dar produto para trabalhar!',
+        ]
+      },
+      {
+        label:'O QUE EU TE MOSTRO',
+        color:'var(--vd)',
+        items:[
+          'Metodologia de trabalho que demanda dedicação',
+          'Operar com liberdade de casa ou qualquer lugar',
+          'Dedicação entre 15–20h/semana',
+          'Margem de lucro de fato no seu bolso!',
+        ]
+      },
+    ]
   },
 
-  // 10B — FRASE
-  { id:'s10b', section:'Conteúdo', label:'Frase', type:'impact',
-    tag:'FRASE-CHAVE',
-    phrase:['Quanto mais você vende,\n', 'maior sua\nchance\nde quebrar.', ''],
-    sub:'Você olha um número bonito no dashboard.\nMas a realidade da sua operação só você sabe.',
-    big:'??'
+  { id:'s09', section:'Conteúdo', label:'Os 2 Gargalos', type:'twocol', tag:'CONTEÚDO · 09',
+    title:'Definindo o inimigo — os 2 gargalos do mercado',
+    leftItems:[
+      { label:'GARGALO 1 — SEM CRITÉRIO DE PRODUTO', color:'var(--la)', items:[
+        'Pesquisa tendência → copia concorrente → entra em produto saturado',
+        'Vende com margem mínima → busca próximo produto → tenta de novo',
+        'Preso no ciclo de entrada e saída — sem previsibilidade ou margem consistente',
+        'Você está sempre tendo que começar tudo de novo',
+      ]},
+    ],
+    rightItems:[
+      { label:'GARGALO 2 — ARMADILHA DO VOLUME', color:'var(--vm)', items:[
+        'Caixa preso no giro — vende, reinveste, vende, reinveste. No final sobra pouco.',
+        'Operação refém de volume — sempre precisa faturar muito alto pra pagar as contas',
+        'Alíquota de imposto vai lá nas alturas — o imposto come tudo que sobrou',
+        'Quanto mais você vende, maior sua chance de quebrar',
+      ]},
+    ],
+    note:{ label:'EXEMPLO CONCRETO', text:'20% margem → Simples <strong>(-4%)</strong> = 16% → antecipa <strong>(-4%)</strong> = 12%. Você achava que tinha 20%. <strong>Tinha 12%.</strong>' }
   },
 
-  // 11 — ONDAS
+  { id:'s10', section:'Conteúdo', label:'Exemplo Prático', type:'topics', tag:'CONTEÚDO · 10',
+    title:'Popularidade vs Viabilidade — exemplo prático',
+    items:[
+      { text:'Produto com alto volume no ML, vendido por <strong>20 grandes players</strong> — alguns importando direto da China em container fechado' },
+      { text:'Vendedor iniciante pensa: <em>"tá vendendo muito, vou vender também"</em> — compra 50 unidades a um custo <strong>30% mais alto</strong> que o grande player paga' },
+      { text:'O resultado? Para competir no preço, precisa <strong>vender no zero a zero ou no prejuízo</strong>' },
+      { text:'Com o Triângulo da Viabilidade você analisa: concentração de mercado, margem disponível no seu nível de compra e ciclo de vida do produto — e encontra <strong>produtos com demanda consistente, menos concorrência e margem real</strong>' },
+    ],
+    note:{ label:'O PONTO-CHAVE', text:'Ter uma metodologia que te dá <strong>controle sobre o que você vai ganhar antes de investir.</strong>' }
+  },
   { id:'s11', section:'Método', label:'4 Ondas', type:'ondas', tag:'MÉTODO · 11',
     title:'Leitura de mercado — as 4 ondas',
     ondas:[
@@ -899,14 +878,6 @@ const SLIDES = [
     note:{ label:'REGRA ABSOLUTA', text:'Se não passa nos 3 — <strong>não entra na operação.</strong> Simples assim.' }
   },
 
-  // 12B — FRASE
-  { id:'s12b', section:'Método', label:'Frase', type:'impact',
-    tag:'FRASE-CHAVE',
-    phrase:['Se não passa nos 3\n— ', 'não entra.', ''],
-    sub:'Demanda real + Margem no seu caixa + Estratégia de competição.\nOs três precisam se alinhar antes de você colocar 1 real.',
-    big:'3'
-  },
-
   // 13 — SISTEMA
   { id:'s13', section:'Método', label:'Sistema', type:'topics', tag:'MÉTODO · 13',
     title:'O ML como sócio 24h',
@@ -926,14 +897,6 @@ const SLIDES = [
       { text:'<em>Case 2:</em> Estava na CLT → Full liberado em 30 dias → investiu R$3k → <strong>hoje R$30k/mês de casa</strong>', color:'green' },
     ],
     note:{ label:'O PADRÃO', text:'Não precisaram trabalhar mais. <strong>Só precisaram escolher melhor.</strong>' }
-  },
-
-  // 15 — FRASE FINAL
-  { id:'s15', section:'Método', label:'Frase', type:'impact',
-    tag:'FRASE-CHAVE',
-    phrase:['No ML, a demanda já existe.\n', 'O produto\nque você\nescolhe', ' define tudo.'],
-    sub:'A logística já existe. O tráfego já existe.\nA única variável que você controla — e que define lucro ou prejuízo — é o produto.',
-    big:'ML'
   },
 
   // 16 — PITCH
@@ -1042,21 +1005,30 @@ function renderSlide(s) {
   if (s.type === 'data') return renderData(s);
   if (s.type === 'ondas') return renderOndas(s);
   if (s.type === 'objecoes') return renderObjecoes(s);
+  if (s.type === 'twocol') return renderTwoCol(s);
   return renderTopics(s);
 }
 
 function renderCapa(s) {
   const d = s.data;
-  const statsHtml = d.stats.map(([val, label]) =>
-    `<div style="margin-bottom:10px"><span style="color:var(--am);font-weight:900;font-size:16px">${val}</span> <span style="color:#555;font-size:12px">${label}</span></div>`
-  ).join('');
+  const statsHtml = d.stats.map(([val, label], i) => {
+    const isLast = i === d.stats.length - 1;
+    const isAlone = !label;
+    if (isLast && label) {
+      return `<div style="margin-top:14px;padding-top:12px;border-top:1px solid #2a2a2a"><span style="color:var(--am);font-weight:900;font-size:17px;line-height:1.3">${label}</span></div>`;
+    }
+    if (isAlone) {
+      return `<div style="margin-bottom:7px"><span style="color:var(--br);font-weight:700;font-size:15px">${val}</span></div>`;
+    }
+    return `<div style="margin-bottom:7px"><span style="color:var(--am);font-weight:900;font-size:15px">${val}</span> <span style="color:#666;font-size:12px">${label}</span></div>`;
+  }).join('');
 
   if (d.photo) {
     // PHOTO layout: left panel info + right is full photo with gradient overlay
     return `
       <div class="capa-left">
         <div class="capa-eyebrow">${d.eyebrow}</div>
-        <div class="capa-title">${d.title.replace(/\n/g,'<br>')}</div>
+        <div class="capa-title" style="${d.eyebrow && d.eyebrow.includes('WEBINÁRIO') ? 'font-size:72px;line-height:0.95' : ''}">${d.title.replace(/\n/g,'<br>')}</div>
         <div class="capa-sub">${d.sub}</div>
       </div>
       <div class="capa-right capa-right-photo">
@@ -1084,6 +1056,61 @@ function renderCapa(s) {
       <div class="capa-stat">${statsHtml}</div>
     </div>`;
 }
+
+function renderTwoCol(s) {
+  function makeTopicDiv(text, color) {
+    var c = color || 'var(--am)';
+    return '<div class="topic" style="border-left-color:' + c + '"><div class="topic-text">' + text + '</div></div>';
+  }
+  function makeBlockHeader(label, color) {
+    var c = color || 'var(--am)';
+    return '<div style="font-size:9px;font-weight:900;letter-spacing:2px;color:' + c + ';text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px">' +
+      '<span style="display:inline-block;width:18px;height:2px;background:' + c + '"></span>' + label + '</div>';
+  }
+  function makeItemCard(text, color) {
+    var c = color || 'var(--am)';
+    return '<div style="display:flex;gap:10px;align-items:flex-start;padding:9px 14px;background:var(--c1);border:1px solid var(--c3);border-left:3px solid ' + c + ';border-radius:4px;margin-bottom:8px">' +
+      '<div style="font-size:17px;color:#ccc;line-height:1.5">' + text + '</div></div>';
+  }
+
+  var leftHtml = '';
+  if (s.leftItems) {
+    s.leftItems.forEach(function(blk) {
+      var itemsHtml = blk.items.map(function(it) { return makeTopicDiv(it, blk.color); }).join('');
+      leftHtml += '<div style="margin-bottom:16px">';
+      if (blk.label) leftHtml += '<div style="font-size:9px;font-weight:900;letter-spacing:2px;color:' + (blk.color||'var(--am)') + ';text-transform:uppercase;margin-bottom:10px">' + blk.label + '</div>';
+      leftHtml += itemsHtml + '</div>';
+    });
+  } else if (s.items) {
+    s.items.forEach(function(item) { leftHtml += makeTopicDiv(item.text, null); });
+  }
+
+  var rightHtml = '';
+  if (s.rightBlocks) {
+    s.rightBlocks.forEach(function(blk) {
+      var itemsHtml = blk.items.map(function(it) { return makeItemCard(it, blk.color); }).join('');
+      rightHtml += '<div style="margin-bottom:20px">' + makeBlockHeader(blk.label, blk.color) + itemsHtml + '</div>';
+    });
+  } else if (s.rightItems) {
+    s.rightItems.forEach(function(blk) {
+      var itemsHtml = blk.items.map(function(it) { return makeTopicDiv(it, blk.color); }).join('');
+      rightHtml += '<div style="margin-bottom:16px">';
+      if (blk.label) rightHtml += '<div style="font-size:9px;font-weight:900;letter-spacing:2px;color:' + (blk.color||'var(--am)') + ';text-transform:uppercase;margin-bottom:10px">' + blk.label + '</div>';
+      rightHtml += itemsHtml + '</div>';
+    });
+  }
+
+  var note = s.note ? '<div class="action-box"><div class="action-box-label">' + s.note.label + '</div><div class="action-box-text">' + s.note.text + '</div></div>' : '';
+
+  return '<div class="slide-section-tag">' + (s.tag||'') + '</div>' +
+    '<div class="slide-title">' + s.title + '</div>' +
+    '<div class="slide-divider"></div>' +
+    '<div style="display:flex;gap:20px;flex:1;overflow:hidden">' +
+      '<div style="flex:1;display:flex;flex-direction:column;overflow-y:auto;padding-right:16px;border-right:1px solid var(--c3)">' + leftHtml + '</div>' +
+      '<div style="flex:1;display:flex;flex-direction:column;overflow-y:auto;padding-left:4px">' + rightHtml + '</div>' +
+    '</div>' + note;
+}
+
 
 function renderTopics(s) {
   const items = s.items.map(item => {
@@ -1309,6 +1336,11 @@ function go(dir) { goTo(current + dir); }
 
 // keyboard
 document.addEventListener('keydown', e => {
+  // Don't intercept keys when user is typing in an input/textarea
+  const tag = document.activeElement?.tagName?.toLowerCase();
+  const isEditing = tag === 'input' || tag === 'textarea' || document.activeElement?.isContentEditable;
+  if (isEditing) return;
+
   if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); go(1); }
   if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); go(-1); }
   if (e.key === 'f' || e.key === 'F') {
@@ -1335,6 +1367,81 @@ updateUI();
 </html>
 
 <!-- ══ FEATURE INJECTION ══════════════════════════════════════════ -->
+
+  /* ── PHOTO DRAG OVERLAY ─────────────────────────── */
+  .slide-photo-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+  }
+  .slide-photo-draggable {
+    position: absolute;
+    cursor: move;
+    user-select: none;
+    pointer-events: all;
+    transition: box-shadow .15s;
+  }
+  .slide-photo-draggable img {
+    display: block;
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,1) 50%),
+                        linear-gradient(to top, transparent 0%, rgba(0,0,0,1) 10%);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,1) 50%),
+                linear-gradient(to top, transparent 0%, rgba(0,0,0,1) 10%);
+    mask-composite: intersect;
+    pointer-events: none;
+  }
+  .slide-photo-draggable.dragging { box-shadow: 0 0 0 2px rgba(255,224,0,0.5); }
+  .slide-photo-resize-handle {
+    position: absolute;
+    bottom: 4px; right: 4px;
+    width: 16px; height: 16px;
+    background: rgba(255,224,0,0.7);
+    border-radius: 2px;
+    cursor: se-resize;
+    pointer-events: all;
+  }
+
+  /* ── COLOR PICKER IN EDIT PANEL ─────────────────── */
+  .color-picker-row {
+    display: flex; gap: 6px; align-items: center;
+    flex-wrap: wrap; margin-bottom: 8px;
+  }
+  .cp-swatch {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color .15s, transform .15s;
+    flex-shrink: 0;
+  }
+  .cp-swatch:hover { transform: scale(1.2); }
+  .cp-swatch.selected { border-color: #fff; }
+  .cp-custom {
+    width: 28px; height: 22px;
+    border-radius: 3px; border: 1px solid #444;
+    cursor: pointer; background: none;
+    padding: 0; flex-shrink: 0;
+  }
+  .cp-preview {
+    flex: 1; min-width: 60px;
+    background: #1e1e1e; border: 1px solid #333;
+    border-radius: 3px; padding: 4px 8px;
+    font-size: 11px; color: #888;
+  }
+  .cp-instruction {
+    font-size: 10px; color: #555;
+    line-height: 1.4; margin-bottom: 6px;
+    padding: 6px 8px;
+    background: rgba(255,224,0,0.04);
+    border-radius: 3px;
+  }
+
 <style>
 /* ── TOOLBAR ────────────────────────────────────────── */
 .toolbar {
@@ -1995,4 +2102,235 @@ function showToast(msg) {
   t.style.opacity = '1';
   setTimeout(() => { t.style.opacity = '0'; }, 2000);
 }
+</script>
+
+<script>
+// ══ PHOTO DRAG SYSTEM ═══════════════════════════════════════════
+// Per-slide photo state: { src, x, y, h, visible }
+const slidePhotos = {};
+
+function getPhotoState(idx) {
+  if (!slidePhotos[idx]) {
+    slidePhotos[idx] = { src: null, x: 55, y: 0, h: 100, visible: false };
+  }
+  return slidePhotos[idx];
+}
+
+function injectPhotoLayer(slideEl, idx) {
+  // Remove old layer
+  const old = slideEl.querySelector('.slide-photo-layer');
+  if (old) old.remove();
+
+  const state = getPhotoState(idx);
+  if (!state.src) return;
+
+  const layer = document.createElement('div');
+  layer.className = 'slide-photo-layer';
+
+  const draggable = document.createElement('div');
+  draggable.className = 'slide-photo-draggable';
+  draggable.style.cssText = `left:${state.x}%;top:${state.y}px;height:${state.h}%;`;
+  draggable.innerHTML = `<img src="${state.src}" alt="foto"><div class="slide-photo-resize-handle" data-resize="true"></div>`;
+
+  layer.appendChild(draggable);
+  slideEl.appendChild(layer);
+  makeDraggable(draggable, layer, idx);
+}
+
+function makeDraggable(el, container, idx) {
+  let startX, startY, startLeft, startTop, isResize = false;
+
+  const onDown = (e) => {
+    if (e.target.dataset.resize) { isResize = true; }
+    else { isResize = false; }
+    e.preventDefault();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    startX = clientX; startY = clientY;
+    startLeft = parseFloat(el.style.left) || 0;
+    startTop  = parseFloat(el.style.top)  || 0;
+    startH    = parseFloat(el.style.height) || 100;
+    el.classList.add('dragging');
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup',   onUp);
+    document.addEventListener('touchmove', onMove, { passive: false });
+    document.addEventListener('touchend',  onUp);
+  };
+
+  let startH = 100;
+
+  const onMove = (e) => {
+    e.preventDefault();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    const cW = container.offsetWidth;
+    const cH = container.offsetHeight;
+    const dx = clientX - startX;
+    const dy = clientY - startY;
+
+    if (isResize) {
+      const newH = Math.max(30, Math.min(100, startH + (dy / cH * 100)));
+      el.style.height = newH + '%';
+      getPhotoState(idx).h = newH;
+    } else {
+      const newLeft = Math.max(-20, Math.min(80, startLeft + (dx / cW * 100)));
+      const newTop  = Math.max(-cH * 0.3, Math.min(cH * 0.5, startTop + dy));
+      el.style.left = newLeft + '%';
+      el.style.top  = newTop + 'px';
+      getPhotoState(idx).x = newLeft;
+      getPhotoState(idx).y = newTop;
+    }
+  };
+
+  const onUp = () => {
+    el.classList.remove('dragging');
+    document.removeEventListener('mousemove', onMove);
+    document.removeEventListener('mouseup',   onUp);
+    document.removeEventListener('touchmove', onMove);
+    document.removeEventListener('touchend',  onUp);
+  };
+
+  el.addEventListener('mousedown',  onDown);
+  el.addEventListener('touchstart', onDown, { passive: false });
+}
+
+// ══ OVERRIDE buildEditPanel to add photo + color picker to ALL slides ══
+const _origBuildEditPanel = buildEditPanel;
+buildEditPanel = function() {
+  _origBuildEditPanel();
+
+  const body   = document.getElementById('editBody');
+  const s      = SLIDES[current];
+  const state  = getPhotoState(current);
+
+  // ── COLOR PICKER section ──────────────────────────────────
+  const colorSection = document.createElement('div');
+  colorSection.innerHTML = `
+    <div class="edit-section" style="margin-top:16px">Cor de texto</div>
+    <div class="cp-instruction">
+      Selecione uma cor abaixo. Depois, no campo de texto do tópico, escreva o trecho que quer colorir entre colchetes assim:<br>
+      <strong style="color:#FFE000">[texto aqui]</strong> → ficará na cor escolhida
+    </div>
+    <div class="color-picker-row">
+      ${[
+        ['#FFE000','Amarelo'],['#FFFFFF','Branco'],['#FF5C5C','Vermelho'],
+        ['#00C97A','Verde'],['#3B9EFF','Azul'],['#FF6B2B','Laranja'],
+        ['#888888','Cinza'],['#0A0A0A','Preto']
+      ].map(([c,n]) =>
+        `<div class="cp-swatch" style="background:${c}" title="${n}" data-color="${c}" onclick="selectCpColor(this,'${c}')"></div>`
+      ).join('')}
+      <input type="color" class="cp-custom" id="cpCustom" value="#FFE000" onchange="selectCpColor(null,this.value)" title="Cor personalizada">
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:8px">
+      <div class="cp-preview" id="cpPreview" style="color:#FFE000">■ Amarelo (#FFE000)</div>
+      <button class="pen-clear-btn" style="font-size:10px;padding:3px 10px" onclick="applyCpColor()">Aplicar cor</button>
+    </div>`;
+  body.appendChild(colorSection);
+  // Select first swatch by default
+  const firstSwatch = colorSection.querySelector('.cp-swatch');
+  if (firstSwatch) selectCpColor(firstSwatch, '#FFE000');
+
+  // ── PHOTO UPLOAD section (ALL slides) ─────────────────────
+  const photoSection = document.createElement('div');
+  photoSection.innerHTML = `
+    <div class="edit-section" style="margin-top:16px">Foto do slide</div>
+    <div class="photo-upload-area" onclick="document.getElementById('slidePhotoInput').click()" style="margin-bottom:10px">
+      <div class="photo-upload-icon">📸</div>
+      <p>${state.src ? '✓ Foto carregada — clique para trocar' : 'Clique para adicionar foto'}</p>
+    </div>
+    ${state.src ? `
+    <div style="display:flex;gap:8px;margin-bottom:10px">
+      <button class="pen-clear-btn" onclick="removeSlidePhoto()">✕ Remover foto</button>
+      <div style="font-size:10px;color:#555;padding:4px 0">Arraste a foto no slide para reposicionar</div>
+    </div>
+    <div style="font-size:10px;color:#555;margin-bottom:8px">
+      🔲 Arraste o quadradinho amarelo no canto inferior direito da foto para redimensionar
+    </div>` : ''}`;
+  body.appendChild(photoSection);
+};
+
+// ── Color picker helpers ───────────────────────────────────
+let currentCpColor = '#FFE000';
+window.selectCpColor = function(el, color) {
+  currentCpColor = color;
+  document.querySelectorAll('.cp-swatch').forEach(s => s.classList.remove('selected'));
+  if (el) el.classList.add('selected');
+  const preview = document.getElementById('cpPreview');
+  if (preview) { preview.style.color = color; preview.textContent = `■ ${color}`; }
+};
+
+window.applyCpColor = function() {
+  // Find the focused textarea/input
+  const active = document.activeElement;
+  if (!active || (active.tagName !== 'INPUT' && active.tagName !== 'TEXTAREA')) {
+    showToast('Clique num campo de texto primeiro, depois em Aplicar cor');
+    return;
+  }
+  const start = active.selectionStart;
+  const end   = active.selectionEnd;
+  const val   = active.value;
+  if (start === end) {
+    showToast('Selecione o texto que quer colorir antes');
+    return;
+  }
+  const selected = val.slice(start, end);
+  const colored  = `<span style="color:${currentCpColor}">${selected}</span>`;
+  active.value = val.slice(0, start) + colored + val.slice(end);
+  showToast('Cor aplicada — clique em Aplicar alterações para salvar');
+};
+
+// ── Slide photo upload ──────────────────────────────────────
+// Add hidden input if not present
+if (!document.getElementById('slidePhotoInput')) {
+  const inp = document.createElement('input');
+  inp.type = 'file'; inp.id = 'slidePhotoInput'; inp.accept = 'image/*';
+  inp.style.display = 'none';
+  inp.onchange = handleSlidePhotoUpload;
+  document.body.appendChild(inp);
+}
+
+function handleSlidePhotoUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const state = getPhotoState(current);
+    state.src = ev.target.result;
+    state.visible = true;
+    // Inject into current slide
+    const slideEl = document.getElementById(SLIDES[current].id);
+    if (slideEl) injectPhotoLayer(slideEl, current);
+    // Rebuild edit panel to show remove button
+    buildEditPanel();
+    showToast('Foto adicionada — arraste para posicionar ✓');
+  };
+  reader.readAsDataURL(file);
+  e.target.value = '';
+}
+
+window.removeSlidePhoto = function() {
+  const state = getPhotoState(current);
+  state.src = null;
+  const slideEl = document.getElementById(SLIDES[current].id);
+  if (slideEl) {
+    const layer = slideEl.querySelector('.slide-photo-layer');
+    if (layer) layer.remove();
+  }
+  buildEditPanel();
+  showToast('Foto removida');
+};
+
+// Re-inject photos when navigating back to a slide that had one
+const _origGoTo = goTo;
+goTo = function(idx) {
+  _origGoTo(idx);
+  setTimeout(() => {
+    const s = SLIDES[idx];
+    if (!s) return;
+    const slideEl = document.getElementById(s.id);
+    if (slideEl && getPhotoState(idx).src) {
+      injectPhotoLayer(slideEl, idx);
+    }
+  }, 50);
+};
 </script>
