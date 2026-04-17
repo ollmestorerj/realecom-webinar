@@ -1137,24 +1137,8 @@ const SLIDES = [
     }
   },
 
-  // 21 — OBJEÇÕES
-  { id:'s21', section:'Q&A', label:'Objeções', type:'objecoes', tag:'Q&A · 21',
-    title:'Perguntas frequentes',
-    objecoes:[
-      { q:'"Funciona pro meu nível de capital?"',
-        a:'O Triângulo adapta a escolha pro seu nível de caixa. <strong>Vemos isso em detalhes no diagnóstico.</strong>' },
-      { q:'"Ferramentas que você usa?"',
-        a:'<strong>Hunter Hub</strong> (R$87 com cupom) + <strong>Nubimetrics</strong> (~R$4k/ano). Começa no Hunter Hub. Nubimetrics entra quando a operação tem corpo.' },
-      { q:'"Não tenho capital suficiente."',
-        a:'Capital é variável, não bloqueio. Quanto mais capital, mais rápido. <strong>O método funciona em qualquer tamanho.</strong>' },
-      { q:'"Medo de promessa que não entrega."',
-        a:'Por isso é diagnóstico, não compra. <strong>Não quero mentorado que não vai ter resultado.</strong> Isso pra mim não compensa.' },
-      { q:'"Quanto tempo até ver resultado?"',
-        a:'Depende da operação. Quem chegou rodando foi de R$22k pra R$80k no 1º mês. <strong>A curva encurta muito com critério validado.</strong>' },
-      { q:'"Você não é mais um guru?"',
-        a:'Não mostro carro, mansão, piscina. <strong>Só mostro operação real e resultado de quem aplicou o método.</strong>' },
-    ]
-  },
+  // 21 — CTA FINAL
+  { id:'s21', section:'Q&A', label:'CTA Final', type:'cta_final', tag:'AGORA' },
 
 ];
 
@@ -1184,6 +1168,7 @@ function renderSlide(s) {
   if (s.type === 'objecoes') return renderObjecoes(s);
   if (s.type === 'twocol') return renderTwoCol(s);
   if (s.type === 'cases_grid') return renderCasesGrid(s);
+  if (s.type === 'cta_final') return renderCtaFinal(s);
   return renderTopics(s);
 }
 
@@ -1375,6 +1360,21 @@ function renderImpact(s) {
       <div class="impact-line"></div>
       <div class="impact-phrase" style="font-size:72px;max-width:100%">${phraseHtml}</div>
       <div class="impact-sub" style="font-size:19px;max-width:700px;margin-top:16px">${s.sub.replace(/\n/g,'<br>')}</div>
+    </div>`;
+}
+
+function renderCtaFinal(s) {
+  return `
+    <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 60px;text-align:center;position:relative;overflow:hidden">
+      <div style="position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,224,0,.10) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none"></div>
+      <div class="impact-tag" style="margin-bottom:24px;font-size:13px;letter-spacing:.2em">PRÓXIMO PASSO</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:100px;line-height:1;color:#fff;margin-bottom:8px">MARQUE SUA</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:100px;line-height:1;color:var(--am);margin-bottom:8px">CALL DE DIAGNÓSTICO</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:100px;line-height:1;color:#fff;margin-bottom:40px">AGORA!</div>
+      <div style="width:80px;height:3px;background:var(--am);margin-bottom:36px"></div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:20px;color:rgba(255,255,255,.7);max-width:620px;line-height:1.6">
+        Vamos analisar sua operação juntos e identificar qual produto pode mudar seu resultado no Mercado Livre.
+      </div>
     </div>`;
 }
 
