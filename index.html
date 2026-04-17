@@ -1444,7 +1444,7 @@ function renderMentoriaApres(s) {
       <div style="flex:1;display:flex;flex-direction:column;gap:10px;overflow:hidden;justify-content:center">
         ${itensHtml}
       </div>
-      <div style="flex:0 0 300px;display:flex;align-items:center;justify-content:center">
+      <div style="flex:0 0 360px;display:flex;align-items:center;justify-content:center">
         <div style="width:100%;background:rgba(255,224,0,.06);border:2px solid rgba(255,224,0,.3);border-radius:16px;padding:40px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px">
           <div style="font-size:44px">📅</div>
           <div style="font-family:'Bebas Neue',sans-serif;font-size:100px;line-height:.9;color:var(--am)">6</div>
@@ -1471,14 +1471,14 @@ function renderInvestimento(s) {
                  background:transparent;border:none;border-bottom:3px solid rgba(255,224,0,.4);outline:none;
                  text-align:center;width:420px;padding:0 8px;caret-color:var(--am)"
           oninput="calcDiario(this.value)"
+          onblur="formatInvInput(this)"
           onkeydown="event.stopPropagation()"
         >
       </div>
 
       <div style="width:80px;height:3px;background:var(--am);margin-bottom:32px"></div>
       <div style="background:rgba(255,224,0,.1);border:1px solid rgba(255,224,0,.3);border-radius:40px;padding:14px 36px">
-        <div style="font-family:'DM Sans',sans-serif;font-size:clamp(16px,2vw,22px);color:rgba(255,255,255,.6);margin-bottom:4px">${s.detalhe}</div>
-        <div id="inv-diario" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,48px);color:#fff;letter-spacing:.05em">menos de R$ 28,00 por dia!</div>
+        <div id="inv-diario" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,48px);color:#fff;letter-spacing:.05em">R$ 27,78 por dia</div>
       </div>
     </div>`;
 }
@@ -1631,20 +1631,23 @@ function updateUI() {
   });
 }
 
+function formatInvInput(el) {
+  const clean = el.value.replace(/\./g,'').replace(',','.');
+  const num = parseFloat(clean);
+  if (!isNaN(num) && num > 0) {
+    el.value = num.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
+  }
+}
+
 function calcDiario(raw) {
-  // parse value: remove dots (thousands) and replace comma with dot
   const clean = raw.replace(/\./g,'').replace(',','.');
   const total = parseFloat(clean);
   const el = document.getElementById('inv-diario');
   if (!el) return;
-  if (isNaN(total) || total <= 0) {
-    el.textContent = '—';
-    return;
-  }
-  const dias = 180; // 6 meses
-  const diario = total / dias;
+  if (isNaN(total) || total <= 0) { el.textContent = '—'; return; }
+  const diario = total / 180;
   const fmt = diario.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
-  el.textContent = 'menos de R$ ' + fmt + ' por dia!';
+  el.textContent = 'R$ ' + fmt + ' por dia';
 }
 
 function goTo(idx) {
