@@ -418,7 +418,7 @@
 
   /* FRASE IMPACTO */
   .slide-impact {
-    flex-direction: row;
+    flex-direction: column;
     padding: 0;
   }
   .impact-left {
@@ -792,28 +792,21 @@ const SLIDES = [
         'Faturar R$100k com R$5k de investimento',
         'Te dar produto para trabalhar!',
       ]},
+    ],
+    rightItems:[
       { label:'O QUE EU TE MOSTRO', color:'var(--vd)', items:[
         'Metodologia de trabalho que demanda dedicação',
         'Operar com liberdade de casa ou qualquer lugar',
         'Dedicação entre 15–20h/semana',
         'Margem de lucro de fato no seu bolso!',
       ]},
-    ],
-    rightItems:[
-      { label:'', color:'var(--br)', items:[
-        'Vou te dar um conhecimento real, do que acontece na minha operação para você!',
-      ]},
     ]
   },
 
 
   // ── FRASE IMPACTO ─────────────────────────────────────────
-  { id:'sA1', section:'Conteúdo', label:'Frase Impacto', type:'impact',
-    tag:'FRASE-CHAVE',
-    phrase:['No Mercado Livre,\na demanda já existe.\nA logística já existe.\n', 'O produto que você\nescolhe define tudo.', ''],
-    sub:'O que vai definir se você lucra ou empata é o produto que você escolhe.',
-    big:'ML'
-  },
+
+,
 
   // ── DISCLAIMER ────────────────────────────────────────────
   { id:'sA2', section:'Conteúdo', label:'Disclaimer', type:'topics', tag:'CONTEÚDO',
@@ -912,7 +905,14 @@ const SLIDES = [
     ]
   },
 
-  // ── GARGALOS (movido do s09) ──────────────────────────────
+  { id:'sA1', section:'Conteúdo', label:'Frase Impacto', type:'impact',
+    tag:'FRASE-CHAVE',
+    phrase:['No Mercado Livre,\na demanda já existe.\nA logística já existe.\n', 'O produto que você\nescolhe define tudo.', ''],
+    sub:'O que vai definir se você lucra ou empata é o produto que você escolhe.',
+    big:'ML'
+  },
+
+// ── GARGALOS (movido do s09) ──────────────────────────────
   { id:'s09', section:'Conteúdo', label:'Os 2 Gargalos', type:'twocol', tag:'CONTEÚDO · 09',
     title:'Definindo o inimigo — os 2 gargalos do mercado',
     leftItems:[
@@ -1287,8 +1287,8 @@ function renderTwoCol(s) {
     '<div class="slide-title">' + s.title + '</div>' +
     '<div class="slide-divider"></div>' +
     '<div style="display:flex;gap:20px;flex:1;overflow:hidden">' +
-      '<div style="flex:1;display:flex;flex-direction:column;overflow-y:auto;padding-right:16px;border-right:1px solid var(--c3)">' + leftHtml + '</div>' +
-      '<div style="flex:1;display:flex;flex-direction:column;overflow-y:auto;padding-left:4px">' + rightHtml + '</div>' +
+      '<div style="flex:1;display:flex;flex-direction:column;justify-content:center;overflow-y:auto;padding-right:16px;border-right:1px solid var(--c3)">' + leftHtml + '</div>' +
+      '<div style="flex:1;display:flex;flex-direction:column;justify-content:center;overflow-y:auto;padding-left:4px">' + rightHtml + '</div>' +
     '</div>' + note;
 }
 
@@ -1342,14 +1342,11 @@ function renderImpact(s) {
     i === 1 ? `<em>${p.replace(/\n/g,'<br>')}</em>` : p.replace(/\n/g,'<br>')
   ).join('');
   return `
-    <div class="impact-left">
+    <div class="impact-left" style="width:100%;max-width:100%;padding:40px 60px;display:flex;flex-direction:column;justify-content:center;">
       <div class="impact-tag">${s.tag}</div>
       <div class="impact-line"></div>
-      <div class="impact-phrase">${phraseHtml}</div>
-      <div class="impact-sub">${s.sub.replace(/\n/g,'<br>')}</div>
-    </div>
-    <div class="impact-right">
-      <div class="impact-big">${s.big}</div>
+      <div class="impact-phrase" style="font-size:72px;max-width:100%">${phraseHtml}</div>
+      <div class="impact-sub" style="font-size:19px;max-width:700px;margin-top:16px">${s.sub.replace(/\n/g,'<br>')}</div>
     </div>`;
 }
 
