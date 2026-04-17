@@ -1355,13 +1355,14 @@ function renderImpact(s) {
     i === 1 ? `<em>${p.replace(/\n/g,'<br>')}</em>` : p.replace(/\n/g,'<br>')
   ).join('');
   return `
-    <div class="impact-left" style="width:100%;max-width:100%;padding:40px 60px;display:flex;flex-direction:column;justify-content:center;">
-      <div class="impact-tag">${s.tag}</div>
-      <div class="impact-line"></div>
-      <div class="impact-phrase" style="font-size:72px;max-width:100%">${phraseHtml}</div>
-      <div class="impact-sub" style="font-size:19px;max-width:700px;margin-top:16px">${s.sub.replace(/\n/g,'<br>')}</div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 80px;text-align:center">
+      <div class="impact-tag" style="margin-bottom:20px">${s.tag}</div>
+      <div class="impact-phrase" style="font-size:clamp(58px,7.5vw,105px);text-align:center;max-width:100%;margin-bottom:0">${phraseHtml}</div>
+      <div style="width:80px;height:3px;background:var(--am);margin:28px auto 22px"></div>
+      <div class="impact-sub" style="font-size:clamp(16px,1.5vw,21px);max-width:700px;text-align:center;opacity:.85">${s.sub.replace(/\n/g,'<br>')}</div>
     </div>`;
 }
+
 
 function renderCtaFinal(s) {
   return `
