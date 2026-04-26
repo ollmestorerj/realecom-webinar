@@ -810,12 +810,12 @@ const SLIDES = [
   },
 
   // 02
-  { id:'s02', section:'Abertura', label:'Promessa', type:'topics_cards', tag:'ABERTURA · 02',
+  { id:'s02', section:'Abertura', label:'Promessa', type:'abertura02', tag:'ABERTURA · 02',
     title:'O que muda de verdade na sua operação',
     cards:[
-      { icon:'💰', stat:'R$', label:'MARGEM REAL', desc:'Não só numero bonito de faturamento;<br>De fato colocar dinheiro no bolso!' },
-      { icon:'📦', stat:'↑', label:'ESTOQUE GIRANDO', desc:'Sem baixar preço no prejuízo, sem ads de desespero, sem desespero' },
-      { icon:'📊', stat:'✓', label:'PREVISIBILIDADE', desc:'É o que faz você escalar com o mínimo de segurança' },
+      { icon:'💰', stat:'R$', label:'MARGEM REAL', desc:'Não só numero bonito de faturamento — de fato colocar dinheiro no bolso!' },
+      { icon:'📦', stat:'↑', label:'ESTOQUE GIRANDO', desc:'Sem baixar preço no prejuízo, sem ads de desespero, sem parar para rezar' },
+      { icon:'📊', stat:'✓', label:'PREVISIBILIDADE', desc:'É o que faz você escalar com controle e segurança real' },
     ]
   },
 
@@ -847,7 +847,7 @@ const SLIDES = [
       photo: FOTO_FILIPE_POINTING,
       eyebrow:'SOBRE MIM',
       title:'QUEM É\nO FILIPE',
-      sub:'Vendedor do ML — não guru, não agência, não curso de como ficar rico',
+      sub:'Vendedor do ML — não sou guru, nem agência, não vendo curso de como ficar rico',
       tag:'OPERADOR REAL',
       name:'',
       role:'',
@@ -1181,15 +1181,16 @@ const SLIDES = [
     items:[
       { text:'<strong>40 a 60 minutos</strong> — não é reunião de venda. É diagnóstico real da operação.' },
       { text:'Você sai com <strong>3 coisas concretas</strong> independente de qualquer decisão:' },
-      { text:'<em>1</em> — Qual é o seu principal gargalo hoje', color:'green' },
-      { text:'<em>2</em> — Qual produto faz mais sentido pro seu nível de caixa agora', color:'green' },
-      { text:'<em>3</em> — Qual o próximo movimento mais inteligente pra sua operação', color:'green' },
-    ]
+      { text:'<em>1</em> — Entendo sua operação atual.', color:'green' },
+      { text:'<em>2</em> — Identifico qual é o seu principal gargalo de produto.', color:'green' },
+      { text:'<em>3</em> — Te mostro qual é o próximo movimento mais inteligente para o seu negócio.', color:'green' },
+    ],
+    note:{ label:'GARANTIA', text:'Você sai com clareza <strong>independente de qualquer decisão!!!</strong>' }
   },
 
   // 18 — EMOCIONAL
   { id:'s18', section:'Pitch', label:'Por quê', type:'topics', tag:'PITCH · 18',
-    title:'Por que eu faço isso',
+    title:'PROPÓSITO!!',
     items:[
       { text:'Objetivo: <strong>ajudar pessoas a recuperarem o tempo.</strong> Mentoria veio de quem veio me perguntar o que eu fazia.' },
       { text:'<strong>Aquele tempo que você perde com seu filho não volta.</strong> Tempo perdido com família não volta.' },
@@ -1210,19 +1211,15 @@ const SLIDES = [
   },
 
   // 20 — CTA
-  { id:'s20', section:'Pitch', label:'CTA', type:'capa',
+  { id:'s20', section:'Pitch', label:'CTA', type:'cta_garanta', tag:'GARANTA SUA VAGA',
     data:{
-      eyebrow:'Ação · Slide 20',
+      eyebrow:'GARANTA SUA VAGA',
       title:'Garanta\nSua\nVaga',
-      sub:'Link enviado no chat. 5 vagas por semana. Não é escassez artificial.',
-      tag:'5 Vagas / Semana',
+      sub:'LINK ENVIADO NO CHAT. SE CHEGOU ATÉ AQUI NÃO TEM MOTIVO DE NÃO AGENDAR!',
+      tag:'',
       name:'Call de Diagnóstico',
       role:'Gratuita · 40–60 minutos',
-      stats:[
-        ['Gargalo','Clareza sobre o seu principal gargalo hoje'],
-        ['Produto','Qual faz sentido pro seu nível de caixa'],
-        ['Próximo Passo','Movimento mais inteligente agora'],
-      ]
+      stats:[]
     }
   },
 
@@ -1278,6 +1275,8 @@ function buildSlides() {
 
 function renderSlide(s) {
   if (s.type === 'capa') return renderCapa(s);
+  if (s.type === 'abertura02') return renderAbertura02(s);
+  if (s.type === 'cta_garanta') return renderCtaGaranta(s);
   if (s.type === 'impact') return renderImpact(s);
   if (s.type === 'data') return renderData(s);
   if (s.type === 'ondas') return renderOndas(s);
@@ -1336,6 +1335,129 @@ function renderCapa(s) {
       <div class="capa-name">${d.name}</div>
       <div class="capa-role">${d.role}</div>
       <div class="capa-stat">${statsHtml}</div>
+    </div>`;
+}
+
+
+function renderAbertura02(s) {
+  var cardsHtml = s.cards.map(function(c) {
+    return `<div style="
+      flex:1;
+      background:var(--c1);
+      border:1px solid var(--c3);
+      border-top:3px solid var(--am);
+      border-radius:4px;
+      padding:28px 24px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      position:relative;
+      overflow:hidden;
+      transition:background 0.18s;
+    " onmouseover="this.style.background='var(--c2)'" onmouseout="this.style.background='var(--c1)'">
+      <div style="font-size:44px;line-height:1">${c.icon}</div>
+      <div style="
+        font-family:'Bebas Neue',Impact,sans-serif;
+        font-size:52px;
+        color:var(--am);
+        line-height:1;
+        letter-spacing:1px;
+      ">${c.stat}</div>
+      <div style="
+        font-size:13px;
+        font-weight:900;
+        letter-spacing:3px;
+        color:var(--am);
+        text-transform:uppercase;
+        margin-bottom:4px;
+      ">${c.label}</div>
+      <div style="font-size:20px;color:#aaa;line-height:1.55">${c.desc}</div>
+      <div style="
+        position:absolute;
+        bottom:-20px;right:-10px;
+        font-family:'Bebas Neue',Impact,sans-serif;
+        font-size:140px;
+        color:rgba(255,224,0,0.03);
+        line-height:1;
+        pointer-events:none;
+        user-select:none;
+      ">${c.stat}</div>
+    </div>`;
+  }).join('');
+
+  return `
+    <div class="slide-section-tag">${s.tag||''}</div>
+    <div class="slide-title">${s.title}</div>
+    <div class="slide-divider"></div>
+    <div style="display:flex;gap:16px;flex:1;align-items:stretch">
+      ${cardsHtml}
+    </div>
+    <div style="
+      margin-top:16px;
+      padding:14px 20px;
+      background:rgba(255,224,0,0.05);
+      border:1px solid rgba(255,224,0,0.15);
+      border-left:4px solid var(--am);
+      border-radius:0 4px 4px 0;
+      font-size:18px;
+      color:#888;
+    ">
+      <span style="color:var(--am);font-weight:900">Hoje</span> você sai com o critério para identificar isso na sua própria operação.
+    </div>`;
+}
+
+function renderCtaGaranta(s) {
+  return `
+    <div class="capa-left" style="background:var(--am);justify-content:center;gap:0;padding:40px 36px">
+      <div class="capa-eyebrow">${s.data.eyebrow||'AGORA'}</div>
+      <div class="capa-title" style="font-size:76px;line-height:0.9;margin-bottom:20px">${s.data.title.replace(/\n/g,'<br>')}</div>
+      <div style="
+        background:rgba(0,0,0,0.12);
+        border-left:4px solid rgba(0,0,0,0.25);
+        border-radius:0 4px 4px 0;
+        padding:16px 20px;
+        margin-top:8px;
+      ">
+        <div style="font-size:13px;font-weight:900;letter-spacing:2px;color:rgba(0,0,0,0.5);text-transform:uppercase;margin-bottom:6px">LINK ENVIADO NO CHAT</div>
+        <div style="font-size:20px;font-weight:700;color:rgba(0,0,0,0.75);line-height:1.4">SE CHEGOU ATÉ AQUI<br>NÃO TEM MOTIVO DE NÃO AGENDAR!</div>
+      </div>
+    </div>
+    <div class="capa-right" style="background:var(--c1);display:flex;flex-direction:column;justify-content:center;padding:40px 36px;gap:24px">
+      <div style="
+        background:var(--c2);
+        border:1px solid var(--c3);
+        border-left:4px solid var(--am);
+        border-radius:0 6px 6px 0;
+        padding:24px 28px;
+        flex-shrink:0;
+      ">
+        <div style="font-size:12px;font-weight:900;letter-spacing:3px;color:var(--am);text-transform:uppercase;margin-bottom:8px">FORMATO</div>
+        <div style="
+          font-family:'Bebas Neue',Impact,sans-serif;
+          font-size:38px;
+          color:var(--br);
+          letter-spacing:1px;
+          line-height:1.1;
+          margin-bottom:4px;
+        ">${s.data.name}</div>
+        <div style="font-size:18px;color:var(--am);font-weight:700">${s.data.role}</div>
+      </div>
+      <div id="cta-garanta-photo-placeholder" style="
+        flex:1;
+        background:var(--c2);
+        border:1px solid var(--c3);
+        border-radius:6px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        overflow:hidden;
+        min-height:180px;
+        position:relative;
+      ">
+        <div style="text-align:center;color:#444;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase">
+          📸 PRINT DOS RESULTADOS<br><span style="font-size:11px;color:#333;font-weight:400;letter-spacing:0">Adicione via painel de edição</span>
+        </div>
+      </div>
     </div>`;
 }
 
