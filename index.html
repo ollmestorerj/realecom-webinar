@@ -1211,18 +1211,6 @@ const SLIDES = [
   },
 
   // 20 — CTA
-  { id:'s20', section:'Pitch', label:'CTA', type:'cta_garanta', tag:'GARANTA SUA VAGA',
-    data:{
-      eyebrow:'GARANTA SUA VAGA',
-      title:'Garanta\nSua\nVaga',
-      sub:'LINK ENVIADO NO CHAT. SE CHEGOU ATÉ AQUI NÃO TEM MOTIVO DE NÃO AGENDAR!',
-      tag:'',
-      name:'Call de Diagnóstico',
-      role:'Gratuita · 40–60 minutos',
-      stats:[]
-    }
-  },
-
   // 21 — CTA FINAL
   { id:'s21', section:'Q&A', label:'CTA Final', type:'cta_final', tag:'AGORA' },
 
@@ -1286,6 +1274,7 @@ function renderSlide(s) {
   if (s.type === 'cta_final') return renderCtaFinal(s);
   if (s.type === 'intervalo') return renderIntervalo(s);
   if (s.type === 'mentoria_apres') return renderMentoriaApres(s);
+  if (s.type === 'investimento') return renderInvestimento(s);
   if (s.type === 'topics_cards') return renderTopicsCards(s);
   return renderTopics(s);
 }
@@ -1690,27 +1679,69 @@ function renderMentoriaApres(s) {
 
 function renderInvestimento(s) {
   return `
-    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 80px;overflow:hidden">
-      <div style="position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(255,224,0,.08) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none"></div>
-      <div class="impact-tag" style="margin-bottom:28px">${s.tag}</div>
-      <div style="font-family:'DM Sans',sans-serif;font-size:clamp(24px,3vw,38px);color:rgba(255,255,255,.5);letter-spacing:.1em;margin-bottom:16px">${s.detalhe}</div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 60px;overflow:hidden">
 
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px">
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,70px);line-height:1;color:var(--am)">R$</span>
-        <input id="inv-input" type="text" value="5.000,00"
-          style="font-family:'Bebas Neue',sans-serif;font-size:clamp(70px,10vw,138px);line-height:.9;color:var(--am);
-                 background:transparent;border:none;border-bottom:3px solid rgba(255,224,0,.4);outline:none;
-                 text-align:center;width:420px;padding:0 8px;caret-color:var(--am)"
+      <!-- Glow background -->
+      <div style="position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(255,224,0,.06) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none"></div>
+
+      <!-- Tag -->
+      <div style="font-size:12px;font-weight:900;letter-spacing:3px;color:var(--am);text-transform:uppercase;margin-bottom:20px">${s.tag || 'INVESTIMENTO'}</div>
+
+      <!-- Detalhe -->
+      <div style="font-family:'DM Sans',sans-serif;font-size:18px;color:rgba(255,255,255,.45);letter-spacing:.12em;text-transform:uppercase;margin-bottom:32px">${s.detalhe || '6 meses de acompanhamento'}</div>
+
+      <!-- Campo de valor editável -->
+      <div style="display:flex;align-items:flex-start;justify-content:center;gap:10px;margin-bottom:12px">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4.5vw,58px);line-height:1;color:var(--am);padding-top:16px">R$</span>
+        <input id="inv-input" type="text" value="${s.valor ? s.valor.replace('R$ ','').replace('R$','').trim() : '5.000,00'}"
+          placeholder="0,00"
+          style="font-family:'Bebas Neue',sans-serif;
+                 font-size:clamp(80px,12vw,148px);
+                 line-height:.95;
+                 color:var(--am);
+                 background:transparent;
+                 border:none;
+                 border-bottom:3px solid rgba(255,224,0,.35);
+                 outline:none;
+                 text-align:center;
+                 width:480px;
+                 padding:0 8px 8px;
+                 caret-color:var(--am);
+                 text-shadow:0 0 60px rgba(255,224,0,.25)"
           oninput="calcDiario(this.value)"
           onblur="formatInvInput(this)"
           onkeydown="event.stopPropagation()"
+          onclick="this.select()"
         >
       </div>
 
-      <div style="width:80px;height:3px;background:var(--am);margin-bottom:32px"></div>
-      <div style="background:rgba(255,224,0,.1);border:1px solid rgba(255,224,0,.3);border-radius:40px;padding:14px 36px">
-        <div id="inv-diario" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,48px);color:#fff;letter-spacing:.05em">R$ 27,78 por dia</div>
+      <!-- Instrução de edição -->
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.2);text-transform:uppercase;margin-bottom:36px">▲ clique para editar</div>
+
+      <!-- Divisor -->
+      <div style="width:60px;height:2px;background:rgba(255,224,0,.4);margin-bottom:32px"></div>
+
+      <!-- Card diário -->
+      <div style="
+        background:var(--c1);
+        border:1px solid rgba(255,224,0,.25);
+        border-top:3px solid var(--am);
+        border-radius:4px;
+        padding:20px 48px;
+        min-width:340px;
+        position:relative;
+      ">
+        <div style="font-size:11px;font-weight:900;letter-spacing:2.5px;color:rgba(255,224,0,.6);text-transform:uppercase;margin-bottom:10px">EQUIVALE A</div>
+        <div id="inv-diario" style="
+          font-family:'Bebas Neue',sans-serif;
+          font-size:clamp(32px,4vw,52px);
+          color:#fff;
+          letter-spacing:.05em;
+          line-height:1.1
+        ">R$ 27,78 por dia</div>
+        <div style="font-size:13px;color:#555;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:6px">durante 180 dias de mentoria</div>
       </div>
+
     </div>`;
 }
 
@@ -1871,14 +1902,14 @@ function formatInvInput(el) {
 }
 
 function calcDiario(raw) {
-  const clean = raw.replace(/\./g,'').replace(',','.');
+  const clean = (raw || '').replace(/\./g,'').replace(',','.');
   const total = parseFloat(clean);
   const el = document.getElementById('inv-diario');
   if (!el) return;
   if (isNaN(total) || total <= 0) { el.textContent = '—'; return; }
   const diario = total / 180;
   const fmt = diario.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
-  el.textContent = 'R$ ' + fmt + ' por dia';
+  el.innerHTML = '<span style="color:var(--am)">R$ ' + fmt + '</span> por dia';
 }
 
 function goTo(idx) {
@@ -3012,7 +3043,8 @@ function _goToSlide() {
   m.style.transition = 'opacity 0.8s ease';
   m.style.opacity = '0';
   m.style.pointerEvents = 'none';
-  setTimeout(() => { m.style.display = 'none'; goTo(0); }, 800);
+  const mentoriaIdx = SLIDES.findIndex(s => s.id === 'sI1');
+  setTimeout(() => { m.style.display = 'none'; goTo(mentoriaIdx >= 0 ? mentoriaIdx : 0); }, 800);
 }
 // ========== FIM TIMER ==========
 </script>
