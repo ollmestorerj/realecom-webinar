@@ -1215,7 +1215,16 @@ const SLIDES = [
   { id:'s21', section:'Q&A', label:'CTA Final', type:'cta_final', tag:'AGORA' },
 
   // ── INTERVALO ──────────────────────────────────────────
-  { id:'sI1', section:'Mentoria', label:'Intervalo', type:'intervalo', tag:'' },
+  // ── NOSSOS PRODUTOS ───────────────────────
+  { id:'sProd', section:'Mentoria', label:'Nossos Produtos', type:'produtos_grid', tag:'PRODUTOS',
+    title:'Nossos Produtos',
+    produtos:[
+      { icon:'👥', title:'Mentoria em Grupo', desc:'Ideal para iniciantes ou quem já está no jogo' },
+      { icon:'🎯', title:'Mentoria Individual', desc:'Ideal para negócios que já estão girando e precisam de acompanhamento específico' },
+      { icon:'📚', title:'Curso Básico', desc:'Ideal para quem quer começar do jeito certo, mas não pode investir no acompanhamento semestral' },
+      { icon:'🏪', title:'Montagem e Estruturação de Loja', desc:'Ideal para lojistas ou empresários que querem começar a vender no Mercado Livre, mas querem começar já com a estrutura da loja montada, logística habilitada e produto validado rodando' },
+    ]
+  },
 
   // ── MENTORIA ───────────────────────────────────────────
   { id:'sM1', section:'Mentoria', label:'Apresentação', type:'mentoria_apres', tag:'MENTORIA',
@@ -1233,6 +1242,28 @@ const SLIDES = [
       { icon:'👥', label:'Mentoria quinzenal em grupo' },
     ],
     fechamento:'Acompanhamento completo por 6 meses'
+  },
+
+  // ── CURSO MERCADO LIVRE ─────────────────────────────────
+  { id:'sCurso', section:'Mentoria', label:'Curso Mercado Livre', type:'mentoria_apres', tag:'MENTORIA',
+    title:'Curso Mercado Livre',
+    entregaveis:[
+      { icon:'🎬', label:'Aulas gravadas', sub:[
+        'Como estruturar um negócio no Mercado Livre',
+        'Liberação de Logística',
+        'Qual produto vender',
+        'Como precificar',
+        'Como encontrar fornecedores',
+        'Anúncios que vendem',
+        'Ranqueamento de anúncio',
+        'Ads',
+      ]},
+      { icon:'🛠️', label:'Ferramentas exclusivas' },
+      { icon:'💬', label:'Grupo Network Whatsapp' },
+      { icon:'🔴', label:'Lives Mensais' },
+    ],
+    fechamento:'Acesso de 12 meses ao curso',
+    acesso: true
   },
 
   { id:'sM2', section:'Mentoria', label:'Investimento', type:'investimento', tag:'INVESTIMENTO',
@@ -1273,6 +1304,7 @@ function renderSlide(s) {
   if (s.type === 'cases_grid') return renderCasesGrid(s);
   if (s.type === 'cta_final') return renderCtaFinal(s);
   if (s.type === 'intervalo') return renderIntervalo(s);
+  if (s.type === 'produtos_grid') return renderProdutosGrid(s);
   if (s.type === 'mentoria_apres') return renderMentoriaApres(s);
   if (s.type === 'investimento') return renderInvestimento(s);
   if (s.type === 'topics_cards') return renderTopicsCards(s);
@@ -1640,6 +1672,24 @@ function renderIntervalo(s) {
     </div>`;
 }
 
+function renderProdutosGrid(s) {
+  const prodHtml = s.produtos.map(p => `
+    <div style="display:flex;flex-direction:column;gap:10px;padding:22px 24px;background:rgba(255,255,255,.04);border-radius:12px;border:1px solid rgba(255,224,0,.15);flex:1;min-width:0;position:relative;overflow:hidden">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--am),rgba(255,224,0,.3))"></div>
+      <div style="font-size:36px;margin-bottom:4px">${p.icon}</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,1.6vw,24px);color:var(--am);letter-spacing:.06em;line-height:1.1">${p.title}</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:clamp(13px,1.1vw,15px);color:rgba(255,255,255,.6);line-height:1.5;flex:1">${p.desc}</div>
+    </div>`).join('');
+
+  return `
+    <div class="slide-section-tag">${s.tag||''}</div>
+    <div class="slide-title" style="font-size:clamp(36px,4vw,54px);margin-bottom:14px">${s.title}</div>
+    <div class="slide-divider"></div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;flex:1;min-height:0;padding-top:8px;align-content:center">
+      ${prodHtml}
+    </div>`;
+}
+
 function renderMentoriaApres(s) {
   const itensHtml = s.entregaveis.map(item => {
     const subHtml = item.sub ? `<ul style="margin:6px 0 0 0;padding-left:20px;list-style:none;display:flex;flex-direction:column;gap:4px">
@@ -1666,11 +1716,20 @@ function renderMentoriaApres(s) {
       </div>
       <div style="flex:0 0 360px;display:flex;align-items:center;justify-content:center">
         <div style="width:100%;background:rgba(255,224,0,.06);border:2px solid rgba(255,224,0,.3);border-radius:16px;padding:40px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px">
+          ${s.acesso ? `
+          <div style="font-size:54px">📖</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--am);letter-spacing:.04em;line-height:1.1;margin-top:8px">ACESSO DE</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:100px;line-height:.9;color:var(--am)">12</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:.08em">MESES</div>
+          <div style="width:40px;height:2px;background:rgba(255,224,0,.3);margin:8px 0"></div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:15px;color:rgba(255,255,255,.6);line-height:1.5">ao curso</div>
+          ` : `
           <div style="font-size:44px">📅</div>
           <div style="font-family:'Bebas Neue',sans-serif;font-size:100px;line-height:.9;color:var(--am)">6</div>
           <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:.08em">MESES</div>
           <div style="width:40px;height:2px;background:rgba(255,224,0,.3);margin:4px 0"></div>
           <div style="font-family:'DM Sans',sans-serif;font-size:16px;color:rgba(255,255,255,.6);line-height:1.5">${s.fechamento}</div>
+          `}
         </div>
       </div>
     </div>`;
